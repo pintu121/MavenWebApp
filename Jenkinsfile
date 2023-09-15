@@ -45,7 +45,7 @@ pipeline {
         stage('Deployment') {
           steps {
             node('deployment') {
-            sh 'docker run -itd --name web-container -p 8080:80 pin2patra/webapp:latest' 
+            sh 'docker run -itd --name pintuwap -p 8080:80 pin2patra/webapp:latest' 
             }
           
          }
