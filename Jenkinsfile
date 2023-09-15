@@ -26,8 +26,7 @@ pipeline {
         }
         stage ('Build Docker Image') {
             steps {
-                sh 'docker build . -t pin2patra/webapp:latest'
-                
+                sh 'docker build . -t pin2patra/webapp:latest'   
             }
         }
         stage('Login to Docker Hub') {         
@@ -43,8 +42,13 @@ pipeline {
             }           
         }  
          
-        
+        stage('Deployment') {
+          steps {
+            node('deployment') {
+            sh 'docker run -itd --name web-container -p 8080:80 pin2patra/webapp:latest' 
+            }
           
+         }
+       }
     }
 }
-
