@@ -47,8 +47,7 @@ pipeline {
             node('deployment') {
             sh 'docker run -itd --name pintuwap -p 8080:80 pin2patra/webapp:latest' 
             }
-          
-         }
+          }
        }
     }
 }
