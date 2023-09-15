@@ -1,7 +1,5 @@
-# Pull base image 
-From tomcat:8-jre8
-
-# Maintainer 
-MAINTAINER "speedodia.com@gmail.com" 
-COPY webapp/target/webapp.war /usr/local/tomcat/webapps
-
+FROM tomcat:latest
+MAINTAINER Chandan DevOps
+RUN apt-get update -y 
+ADD webapp/target/webapp.war /usr/local/tomcat/webapps
+EXPOSE 8080
